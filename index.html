@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dante Zea - Desarrollador de Software</title>
+    <link rel="stylesheet" href="css\styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <header>
+            <h1>Dante Zea</h1>
+            <p class="subtitle">Desarrollador de software y analista de datos</p>
+            <div class="contact-info">
+                <a href="https://www.linkedin.com/in/dante-zea-1364aa287/" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/573012931204" target="_blank">WhatsApp</a>
+                <a href="mailto:dantee0319@gmail.com">Email</a>
+                <a href="https://github.com/Dante0319" target="_blank">GitHub</a>
+            </div>
+        </header>
+
+        <main>
+            <div class="profile-image">
+                <img src="images\imagen1.jpg" alt="Dante Zea">
+            </div>
+
+            <section id="education">
+                <h2>Educación</h2>
+                <ul>
+                    <li>Bachiller, Bibliotecología, Psicología - Universidad de Antioquia</li>
+                    <li>Técnica Laboral en Análisis y Desarrollo de Software - CENSA, Medellín (Mar 2023 - Presente)</li>
+                </ul>
+            </section>
+
+            <section id="experience">
+                <h2>Experiencia</h2>
+                <h3>Asistente de análisis y desarrollo de software - CENSA, Medellín</h3>
+                <ul>
+                    <li>Desarrollo de aplicaciones web con HTML, CSS y JavaScript</li>
+                    <li>Gestión de bases de datos MySQL</li>
+                    <li>Optimización de rendimiento web</li>
+                    <li>Desarrollo de aplicaciones como conversor de moneda, juegos y herramientas</li>
+                </ul>
+            </section>
+
+            <section id="projects">
+                <h2>Proyectos Destacados</h2>
+                <ul>
+                    <li>Conversor de Moneda en Python</li>
+                    <li>Juego "Simón dice" para Android</li>
+                    <li>Calculadora para Android</li>
+                    <li>Conversor de imágenes HEIC a JPG en C#</li>
+                    <li>Aplicación web para guardar notas</li>
+                </ul>
+            </section>
+
+            <section id="skills">
+                <h2>Habilidades Técnicas</h2>
+                <div>
+                    <span class="skill">C#</span>
+                    <span class="skill">JavaScript</span>
+                    <span class="skill">Python</span>
+                    <span class="skill">Java</span>
+                    <span class="skill">Kotlin</span>
+                    <span class="skill">HTML</span>
+                    <span class="skill">CSS</span>
+                    <span class="skill">SQL</span>
+                    <span class="skill">Git</span>
+                    <span class="skill">GitHub</span>
+                    <span class="skill">VS Code</span>
+                    <span class="skill">Visual Studio</span>
+                    <span class="skill">Android Studio</span>
+                    <span class="skill">Ingles B1</span>
+                    <span class="skill">System formatting</span>
+                </div>
+            </section>
+        </main>
+
+        <section id="hobbies">
+            <h2>Hobbies</h2>
+            <p>
+                Me apasiona estar siempre actualizado con las últimas tendencias tecnológicas, leer libros sobre desarrollo y crear proyectos innovadores que desafían mis habilidades. Disfruto especialmente desarrollando soluciones prácticas, como este juego de Tetris que ves aquí. 
+                <br><br>
+                La programación y los videojuegos no solo son mi pasión, sino también una manera de mejorar constantemente mis habilidades. ¿Te animas a probar este Tetris? Juega y descubre una pequeña demostración de lo que puedo crear.
+            </p>
+        </section>
+        
+
+
+        <div class="tetris-container">
+            <button id="start-tetris" class="tetris-button">¡Jugar Tetris!</button>
+            <div id="tetris-game" style="display:none;">
+                <div class="tetris-layout">
+                    <div class="tetris-instructions">
+                        <h3>Juega con</h3>
+                        <div class="arrow-keys">
+                            <div class="arrow up">&#8593;</div>
+                            <div class="arrow-row">
+                                <div class="arrow left">&#8592;</div>
+                                <div class="arrow down">&#8595;</div>
+                                <div class="arrow right">&#8594;</div>
+                            </div>
+                        </div>
+                    </div>
+                    <canvas id="tetris" width="199" height="400"></canvas>
+        
+                    <!-- Botón de música al lado derecho -->
+                    <div class="music-control">
+                        <button id="music-toggle" class="music-button">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                    </div>
+                </div>
+        
+                <!-- Score debajo del Tetris -->
+                <div id="tetris-score">SCORE: <span>0</span></div>
+            </div>
+        
+            <audio id="tetris-music" loop>
+                <source src="sounds\tetris_remix.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </div>
+        
+
+            
+            </div>
+            
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js\script.js"></script>
+</body>
+</html>

@@ -1,0 +1,577 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.shake {
+    animation: shake 0.2s;
+    animation-iteration-count: 0.55;
+}
+
+#tetris {
+    border: 4px solid #4ba6fb;
+    border-radius: 4px;
+    box-shadow: 0 0 15px #4ba6fb, 0 0 30px #4ba6fb;
+    background-color: black;
+    margin: 0 auto; /* Centra el canvas del juego */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+/* Efectos de animación para el header */
+header {
+    background-color: rgba(44, 62, 80, 0.8);
+    color: #ecf0f1;
+    text-align: center;
+    padding: 150px 0;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+/* Cambia el color de fondo al pasar el mouse */
+header:hover {
+    background-color: rgba(52, 73, 94, 0.9);
+}
+
+/* Animación en el título principal */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    position: relative;
+    animation: float 4s ease-in-out infinite;
+    color: #f5f5f5d5;
+    transition: color 0.3s ease;
+}
+
+/* Efecto de resplandor en el título */
+h1:hover {
+    color: #ffffff;
+    text-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff;
+}
+
+/* Sutil movimiento flotante para el título */
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-10px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+/* Animación para el subtítulo */
+.subtitle {
+    font-size: 1.5rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto en el subtítulo al pasar el mouse */
+.subtitle:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Estilo y animación para los íconos de contacto */
+.contact-info a {
+    color: #3498db;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+/* Efecto de aumento y brillo en los íconos al pasar el mouse */
+.contact-info a:hover {
+    color: #63aad9;
+    transform: scale(1.2);
+    text-shadow: 0 0 10px #4ba5e1;
+}
+
+/* Líneas debajo de los íconos que se muestran al pasar el mouse */
+.contact-info a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #d0dad8;
+    bottom: -5px;
+    left: 50%;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.contact-info a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-info a {
+    color: #3498db;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #2980b9;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+    position: relative;
+    padding-top: 180px;
+}
+
+.profile-image {
+    position: absolute;
+    top: -180px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section {
+    background-color: rgba(255, 254, 254, 0.9);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.skill {
+    display: inline-block;
+    background-color: #4ba6fb;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+.skill:hover {
+    transform: scale(1.1); /* Aumenta el tamaño ligeramente */
+    
+}
+
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Sección con colores neón para el Tetris */
+.tetris-container {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra más fuerte */
+}
+
+.tetris-button {
+    background-color: #4ba6fb; /* Verde neón */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 20px #4ba6fb, 0 0 40px #4ba6fb, 0 0 60px #4ba6fb; /* Efecto de brillo */
+}
+
+.tetris-button:hover {
+    background-color: #5ac9f9;
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px #4ba6fb, 0 0 50px #4ba6fb, 0 0 70px #4ba6fb;
+}
+
+.tetris-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 15px #800080, 0 0 30px #800080;
+}
+
+#tetris {
+    border: 4px solid #4ba6fb; /* Marco neón rosa */
+    border-radius: 4px;
+    box-shadow: 0 0 15px #4ba6fb, 0 0 30px #4ba6fb; /* Brillo rosa en el borde */
+    background-color: black; /* Fondo negro */
+}
+
+#tetris-score {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #f6eded; /* Azul neón */
+    text-shadow: 0 0 10px #f3e9e9, 0 0 20px #f1ecec;
+}
+
+/* Fichas de Tetris con colores neón */
+.tetris-piece {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    margin: 1px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Colores para cada ficha */
+.tetris-piece.i {
+    background-color: #00FFFF; /* Cian neón */
+    box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF; /* Brillo neón */
+}
+
+.tetris-piece.j {
+    background-color: #800080; /* Azul neón */
+    box-shadow: 0 0 10px #800080, 0 0 20px #800080;
+}
+
+.tetris-piece.l {
+    background-color: #8A08FF; /* Naranja neón */
+    box-shadow: 0 0 10px #8A08FF, 0 0 20px #8A08FF;
+}
+
+.tetris-piece.o {
+    background-color: #0000FF; /* Amarillo neón */
+    box-shadow: 0 0 10px #0000FF, 0 0 20px #0000FF;
+}
+
+.tetris-piece.s {
+    background-color: #800080; /* Verde neón */
+    box-shadow: 0 0 10px #800080, 0 0 20px #800080;
+}
+
+.tetris-piece.t {
+    background-color: #8c1842; /* Púrpura neón */
+    box-shadow: 0 0 10px #8c1842, 0 0 20px #8c1842;
+}
+
+.tetris-piece.z {
+    background-color: #FF0000; /* Rojo neón */
+    box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000;
+}
+
+/* Animación para darle un toque más dinámico */
+.tetris-piece {
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05); /* Efecto de pulso suave */
+    }
+}
+
+@media (max-width: 1024px) {
+    main {
+        grid-template-columns: 1fr;
+        padding-top: 320px;
+    }
+
+    .profile-image {
+        top: 0;
+        width: 250px;
+        height: 250px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    section {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding-top: 280px;
+    }
+
+    .profile-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .contact-info {
+        margin-top: 10px;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .tetris-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding-top: 240px;
+    }
+
+    .profile-image {
+        width: 180px;
+        height: 180px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    section {
+        padding: 10px;
+    }
+
+    .skill {
+        font-size: 0.8rem;
+    }
+
+    .tetris-button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+.retry-button {
+    background-color: #4ba6fb; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    padding: 12px 24px; /* Espaciado del botón */
+    border: none; /* Sin borde */
+    border-radius: 25px; /* Bordes redondeados */
+    font-size: 1.2rem; /* Tamaño de fuente */
+    cursor: pointer; /* Cursor de puntero al pasar el mouse */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+    box-shadow: 0 0 20px #4ba6fb, 0 0 40px #4ba6fb; /* Efecto de brillo */
+}
+
+.retry-button:hover {
+    background-color: #5ac9f9; /* Cambiar el color al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño del botón al 110% */
+    box-shadow: 0 0 30px #4ba6fb, 0 0 50px #4ba6fb; /* Aumenta el brillo */
+}
+
+.retry-button:active {
+    transform: translateY(1px); /* Pequeño efecto al hacer clic */
+    box-shadow: 0 0 15px #800080; /* Cambio en el brillo */
+}
+
+.tetris-layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+    position: relative;
+    width: 103%;
+    left: 10px;
+}
+
+.music-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.music-button {
+    background-color: transparent;
+    border: none;
+    color: #4ba6fb;
+    font-size: 18px; /* Ajusta este valor para cambiar el tamaño de la fuente */
+    cursor: pointer;
+    transition: color 0.3s ease;
+    position: relative; /* Permite mover el botón sin afectar otros elementos */
+    left: -516px; /* Mueve el botón hacia la izquierda */
+    top: 10px; /* Ajusta este valor para mover el botón hacia abajo */
+    padding: 5px 10px; /* Ajusta este padding para hacerlo más pequeño */
+    border-radius: 5px; /* Opcional: redondear esquinas */
+}
+
+
+.music-button:hover {
+    color: #5ac9f9;
+}
+
+.music-button i {
+    text-shadow: 0 0 10px #4ba6fb, 0 0 20px #4ba6fb;
+}
+
+.tetris-instructions {
+    color: #fff;
+    text-align: center; /* Volvemos a centrar el texto */
+    position: absolute;
+    left: 130px; /* Un poco de margen a la izquierda */
+    top: 50%; /* Centramos verticalmente */
+    transform: translateY(-50%); /* Ajuste fino para el centrado vertical */
+    width: auto; /* Permitimos que el ancho se ajuste al contenido */
+}
+
+.tetris-instructions h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #4ba6fb, 0 0 20px #4ba6fb;
+}
+
+.arrow-keys {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.arrow {
+    width: 40px;
+    height: 40px;
+    background-color: #4ba6fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    margin: 5px;
+    box-shadow: 0 0 10px #4ba6fb, 0 0 20px #4ba6fb;
+    transition: all 0.3s ease;
+}
+
+.arrow:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #4ba6fb, 0 0 30px #4ba6fb;
+}
+
+.arrow-row {
+    display: flex;
+}
+
+#tetris {
+    border: 4px solid #4ba6fb;
+    border-radius: 4px;
+    box-shadow: 0 0 15px #4ba6fb, 0 0 30px #4ba6fb;
+    background-color: black;
+    margin: 0 auto; /* Centra el canvas del juego */
+}
+
+#hobbies {
+    background-color: rgba(255, 254, 254, 0.9); /* Similar a otras secciones */
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.1);
+    margin: 60px 0 40px; /* Aumenta el margen superior */
+    transition: transform 0.3s ease;
+}
+
+#hobbies:hover {
+    transform: translateY(-5px);
+}
